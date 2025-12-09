@@ -65,13 +65,14 @@ def dump_replay_to_disk(replay_buf, max_images=120):
 # API-only block (uvicorn import)
 # -----------------------------
 if API_ONLY:
+    from fastapi.responses import StreamingResponse
     from fastapi import FastAPI, HTTPException
     from fastapi.middleware.cors import CORSMiddleware
     from fastapi.responses import FileResponse
     import glob
     import shutil
 
-    app = FastAPI(title="Hawkeye Unified Vision API (read-only)")
+    app = FastAPI(title="Hawkeye Unified Vision API")
 
     # -----------------------------
     # Frame analysis request model
@@ -79,6 +80,8 @@ if API_ONLY:
     class FrameAnalysisRequest(BaseModel):
         image_b64: str
         include_pose: bool = True
+
+    _latest_jpeg = None
 
     # -----------------------------
     # Utilities
@@ -341,6 +344,32 @@ if API_ONLY:
 
         return FileResponse(output_path, media_type="video/mp4", filename="replay.mp4")
 
+    async def mjpeg_streamer():
+        while True:
+            st = _read_state_file_for_api()
+            b64 = st.get("latest_jpeg_b64")
+
+            if b64:
+                try:
+                    frame = base64.b64decode(b64)
+                    yield (
+                        b"--frame\r\n"
+                        b"Content-Type: image/jpeg\r\n\r\n" +
+                        frame +
+                        b"\r\n"
+                    )
+                except Exception:
+                    pass
+
+            await asyncio.sleep(0.03)  # ~30 FPS
+
+    @app.get("/live")
+    async def live_feed():
+        return StreamingResponse(
+            mjpeg_streamer(),
+            media_type="multipart/x-mixed-replace; boundary=frame"
+        )
+
 
 # -----------------------------
 # Main YOLO process (full-featured)
@@ -353,6 +382,10 @@ else:
     DEFAULT_SKIP = 1
     DEFAULT_REPLAY = 120
     DEFAULT_CONF = 0.3
+
+    # Global MJPEG buffer for live streaming
+    _latest_jpeg = None
+
 
     DEFAULT_HIGH_RISK_CLASSES = {"knife", "pistol", "gun", "rifle", "firearm", "weapon", "explosion"}
 
@@ -921,6 +954,19 @@ else:
                         except Exception:
                             pass
 
+                    # Update global JPEG buffer for /live MJPEG stream
+                    try:
+                        global _latest_jpeg
+                        ok, jpg = cv2.imencode(".jpg", overlay)
+                        if ok:
+                            _latest_jpeg = jpg.tobytes()
+                            # also store JPEG in state file so API can serve it
+                            packet_jpeg_b64 = base64.b64encode(_latest_jpeg).decode("ascii")
+
+                    except Exception as e:
+                        print("[LiveFeed] JPEG encode error:", e)
+
+
                     # update unified state file (includes pose merge)
                     state_obj = {
                         "status": "running",
@@ -928,6 +974,7 @@ else:
                         "risk_summary": risk_counts,
                         "roi": active_roi,
                         "fps": packet["fps"],
+                        "latest_jpeg_b64": packet_jpeg_b64,
                         "poses": poses,
                         "pose_events": pose_events,
                         "pose_fps": pose_fps,

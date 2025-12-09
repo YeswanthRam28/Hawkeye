@@ -1,0 +1,15 @@
+{
+  "status": "stopped",
+  "latest_packet": null,
+  "risk_summary": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "roi": null,
+  "fps": 0.0,
+  "poses": [],
+  "pose_events": [],
+  "pose_fps": 0.0,
+  "updated_at": "2025-12-09T22:26:13.898364Z"
+}

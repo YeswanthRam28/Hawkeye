@@ -17,6 +17,7 @@ venv/
 env/
 .env/
 henv/
+hawkenv/
 .Henv/
 Scripts/
 pip-wheel-metadata/
