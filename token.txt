@@ -1,7 +1,0 @@
-$body = '{"username":"admin","password":"password"}'
-
-Invoke-RestMethod `
-    -Uri "http://127.0.0.1:8000/token" `
-    -Method POST `
-    -Body $body `
-    -ContentType "application/json"

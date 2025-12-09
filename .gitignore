@@ -138,3 +138,144 @@ desktop.ini
 # Optional: Ignore all videos/images except assets/
 # Uncomment if needed
 # !assets/
+
+# -----------------------------
+# Python / FastAPI backend
+# -----------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.tmp
+*.log
+*.sqlite3
+*.db
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+henv/
+.Henv/
+Scripts/
+pip-wheel-metadata/
+
+# Local development settings
+*.env
+.env.*
+*.secret
+secrets.json
+
+# Cache & build
+build/
+dist/
+*.egg-info/
+.eggs/
+.mypy_cache/
+.pytest_cache/
+ruff_cache/
+pytestdebug.log
+
+# Byte-compiled
+*__pycache__/
+
+# Coverage
+htmlcov/
+.coverage
+.coverage.*
+
+# -----------------------------
+# Node / Frontend (React/Vite)
+# -----------------------------
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Build artifacts
+dist/
+build/
+.next/
+.cache/
+
+# Environment
+*.local
+*.env.development.local
+*.env.production.local
+*.env.test.local
+
+# -----------------------------
+# FFmpeg / Exported evidence files
+# -----------------------------
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wav
+*.flac
+*.aac
+
+# Exported evidence or logs
+evidence_*.mp4
+exports/
+exported/
+recordings/
+captures/
+
+# -----------------------------
+# Model weights (YOLO, transformers, etc.)
+# -----------------------------
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.h5
+*.tflite
+weights/
+models/
+
+# -----------------------------
+# Images / Data dumps
+# -----------------------------
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tif
+*.tiff
+*.webp
+
+# If training datasets exist
+datasets/
+data/
+raw_data/
+temp_data/
+
+# -----------------------------
+# Editor junk
+# -----------------------------
+.vscode/
+.vscode/*
+.idea/
+.idea/*
+*.swp
+*.swo
+
+# JetBrains project files
+*.iml
+out/
+
+# -----------------------------
+# OS junk
+# -----------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# -----------------------------
+# Optional: Ignore all videos/images except assets/
+# Uncomment if needed
+# !assets/
