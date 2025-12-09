@@ -1,0 +1,85 @@
+node_modules
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.DS_Store
+
+# Virtual Environments
+venv/
+env/
+.hawkenv/
+hawkenv/
+*.egg-info/
+build/
+dist/
+
+# -------------------------
+# Logs & Dumps
+# -------------------------
+logs/
+*.log
+*.tmp
+*.swp
+
+# -------------------------
+# Replay System Output
+# -------------------------
+vision_replay/
+pose_replay/
+*/vision_replay/
+*/pose_replay/
+replay.mp4
+test*
+
+# -------------------------
+# State & Cache
+# -------------------------
+hawkeye_state.json
+hawkeye_state.json.tmp
+hawkeye_pose_state.json
+hawkeye_pose_state.json.tmp
+*.cache
+.cache/
+ultralytics/
+runs/
+runs/
+
+# -------------------------
+# Media (generated)
+# -------------------------
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.avi
+
+# Allow sample images
+!samples/
+!assets/
+!example_images/
+
+# -------------------------
+# IDE / Editor Files
+# -------------------------
+.vscode/
+.idea/
+*.iml
+
+# -------------------------
+# OS Junk
+# -------------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# -------------------------
+# Uvicorn / FastAPI Reload Artifacts
+# -------------------------
+*.pid
+*.db
