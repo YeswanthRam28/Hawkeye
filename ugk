@@ -1,0 +1,34 @@
+frame
+
+
+GET
+/frame/frame/explain
+Explain Frame
+
+incident
+
+
+GET
+/incident/list
+List Incidents
+
+
+GET
+/incident/{incident_id}/evidence
+Get Evidence
+
+narrative
+
+
+GET
+/narrative/{incident_id}
+Get Narrative
+
+trigger
+
+
+POST
+/trigger/trigger/replay
+Trigger Replay 
+
+these are my endpoints 

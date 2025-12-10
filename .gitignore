@@ -1,0 +1,100 @@
+# -------------------------
+# PYTHON BUILD / CACHE FILES
+# -------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.db
+
+# Byte-compiled
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+henv/
+
+# -------------------------
+# FASTAPI / UVICORN / LOGS
+# -------------------------
+*.log
+logs/
+uvicorn.log
+
+# -------------------------
+# MODEL WEIGHTS
+# -------------------------
+*.pt
+*.onnx
+*.engine
+*.tflite
+*.pb
+
+# YOLO models
+yolov5*
+yolov8*
+yolov9*
+yolo*.pt
+
+# Pose models
+yolov8s-pose.pt
+
+# -------------------------
+# INCIDENT REPLAY STORAGE
+# -------------------------
+incidents/
+incidents_demo/
+
+# -------------------------
+# TEMP & OUTPUT FILES
+# -------------------------
+*.mp4
+*.avi
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.gif
+
+# Evidence outputs
+evidence_out/
+*.json
+
+# Composite explainability output tests
+test_*.png
+
+# -------------------------
+# IDE / EDITOR FILES
+# -------------------------
+.vscode/
+.vscode/*
+.idea/
+*.iml
+
+# -------------------------
+# ENVIRONMENT & SECRETS
+# -------------------------
+.env
+*.env
+.env.*
+.env.local
+
+# API Keys (never commit)
+GEMINI_API_KEY
+OPENAI_API_KEY
+
+# -------------------------
+# OS SPECIFIC
+# -------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+explain_overlay.png
+
+test*
