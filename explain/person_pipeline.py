@@ -1,10 +1,10 @@
 # person_pipeline.py
 import cv2
 import numpy as np
-from yolo_pose import YOLOPoseDetector
-from simple_tracker import CentroidTracker
-from motion_per_person import compute_dense_flow, compute_person_flow_global, aggregate_flow_in_bbox
-from simple_risk_fuser import fuse_risk  # tiny fuser you already have / reuse
+from explain.yolo_pose import YOLOPoseDetector
+from explain.simple_tracker import CentroidTracker
+from explain.motion_per_person import compute_dense_flow, compute_person_flow_global, aggregate_flow_in_bbox
+from explain.simple_risk_fuser import fuse_risk  # tiny fuser you already have / reuse
 
 class PersonPipeline:
     def __init__(self, model_path="yolov8s-pose.pt"):

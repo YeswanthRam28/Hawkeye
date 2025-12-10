@@ -7,7 +7,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from typing import Dict, Any
-from evidence.evidence_utils import (
+from explain.evidence.evidence_utils import (
     load_evidence_json,
     load_frame_image,
     find_highest_risk_frame,
