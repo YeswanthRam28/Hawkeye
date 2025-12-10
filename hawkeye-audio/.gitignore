@@ -1,0 +1,114 @@
+# ==========================
+# PYTHON BUILD IGNORE
+# ==========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment folders
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+pythonenv/
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# ==========================
+# FASTAPI / UVICORN
+# ==========================
+*.log
+*.pid
+
+# ==========================
+# EDITOR / IDE FILES
+# ==========================
+# VS Code
+.vscode/
+.settings/
+
+# PyCharm
+.idea/
+
+# Jupyter
+.ipynb_checkpoints
+
+# ==========================
+# OPERATING SYSTEM FILES
+# ==========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================
+# AUDIO / ML RELATED FILES
+# ==========================
+# Evidence folder created by your detection pipeline
+evidence/
+
+# Temporary uploaded audio files
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.ogg
+*.aac
+*.tmp
+
+# Model cache (TF Hub)
+tfhub_modules/
+tensorflow_models/
+
+# Large model weights if exported
+*.h5
+*.pb
+*.tflite
+*.ckpt
+checkpoint/
+saved_model/
+
+# ==========================
+# LOG / TEMP FILES
+# ==========================
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Python profiling output
+profiler.log
+
+# Local docker files (if any)
+*.pid
+docker.log
+
