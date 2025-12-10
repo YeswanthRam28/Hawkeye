@@ -4,8 +4,8 @@ import cv2
 import base64
 import asyncio
 from fastapi import APIRouter, WebSocket
-from person_pipeline import PersonPipeline
-from explainability import combine_overlays
+from explain.person_pipeline import PersonPipeline
+from explain.explainability.composite_overlay import combine_overlays
 
 router = APIRouter()
 
