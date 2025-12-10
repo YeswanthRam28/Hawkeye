@@ -10,6 +10,7 @@ from explain.server.routers.incidents import router as incidents_router
 from explain.server.routers.narrative import router as narrative_router
 from explain.server.routers.trigger import router as trigger_router
 from explain.server.routers.trigger_ws import router as trigger_ws_router
+from explain.server.routers.live_yolo import router as live_yolo_router
 
 app = FastAPI(title="Hawkeye Explainability API", version="1.0")
 
@@ -29,7 +30,11 @@ app.include_router(incidents_router, prefix="/incident", tags=["incident"])
 app.include_router(narrative_router, prefix="/narrative", tags=["narrative"])
 app.include_router(trigger_router, prefix="/trigger", tags=["trigger"])
 app.include_router(trigger_ws_router, prefix="/ws", tags=["websocket"])
+app.include_router(live_yolo_router)
 
 @app.get("/")
 def root():
     return {"status": "Hawkeye API running"}
+
+
+
