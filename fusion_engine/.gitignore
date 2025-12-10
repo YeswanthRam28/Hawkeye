@@ -1,0 +1,109 @@
+# -------------------------
+# PYTHON GENERAL IGNORE
+# -------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.p
+*.tmp
+
+# Virtual environments
+venv/
+env/
+henv/
+.henv/
+*.env
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Build / package artifacts
+build/
+dist/
+*.egg-info/
+
+# -------------------------
+# FASTAPI / UVICORN / LOGS
+# -------------------------
+*.log
+logs/
+uvicorn.log
+
+# -------------------------
+# EVIDENCE STORAGE (Audio / Vision)
+# -------------------------
+evidence/
+audio_evidence/
+vision_evidence/
+*.wav
+*.mp3
+*.webm
+
+# -------------------------
+# REPLAY FRAMES & EXPORTS
+# -------------------------
+replay/
+vision_replay_*.jpg
+*.mp4
+
+# -------------------------
+# MODEL WEIGHTS (big files)
+# -------------------------
+*.onnx
+*.pt
+*.pth
+*.weights
+models/
+checkpoints/
+
+# -------------------------
+# SENSOR HUB CACHE
+# -------------------------
+cache/
+tmp/
+*.cache
+
+# -------------------------
+# EDITOR & IDE ARTIFACTS
+# -------------------------
+.vscode/
+*.code-workspace
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Cursor IDE metadata
+.cursor/
+.cursorrules
+
+# -------------------------
+# OPERATING SYSTEM FILES
+# -------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# -------------------------
+# API KEYS / CONFIG (ENV)
+# -------------------------
+.env
+*.env.local
+.env.backup
+
+# -------------------------
+# HAWKEYE MODULE OUTPUTS
+# -------------------------
+fusion_engine/debug_output/
+fusion_engine/sim_output/
+sensor_stream_output/
+
+# -------------------------
+# TESTING
+# -------------------------
+pytest_cache/
+.coverage
+htmlcov/
+henv/
