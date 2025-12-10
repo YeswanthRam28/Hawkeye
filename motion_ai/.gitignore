@@ -1,0 +1,81 @@
+# ---------------------------
+# Python
+# ---------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.pyd
+*.so
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ---------------------------
+# FastAPI / Uvicorn
+# ---------------------------
+*.log
+uvicorn.log
+
+# ---------------------------
+# Project JSON output files
+# (these are generated every frame, never commit)
+# ---------------------------
+crowd_analysis.json
+motion_events.json
+motion_vectors.json
+motion_output_cam.json
+motion_output_video.json
+motion_output.json
+
+# ---------------------------
+# Temporary runtime files
+# ---------------------------
+*.tmp
+*.cache
+*.DS_Store
+
+# ---------------------------
+# Video files
+# (do NOT upload test videos to repo)
+# ---------------------------
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# ---------------------------
+# Image files
+# For base64 exports or debug outputs
+# ---------------------------
+*.png
+*.jpg
+*.jpeg
+
+# ---------------------------
+# IDE / Editor files
+# ---------------------------
+.vscode/
+.idea/
+*.code-workspace
+
+# ---------------------------
+# OS-generated
+# ---------------------------
+Thumbs.db
+desktop.ini
+
+# ---------------------------
+# Build / Distribution
+# ---------------------------
+dist/
+build/
+*.egg-info/
+
