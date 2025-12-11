@@ -238,7 +238,7 @@ Hot-reload safe sandbox
 
 📦 Installation
 
-git clone https://github.com/<your-repo>/hawkeye-open-intelligence
+git clone https://github.com/yeswanthram28/hawkeye.git
 cd hawkeye-open-intelligence
 pip install -r requirements.txt
 
