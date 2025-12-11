@@ -20,9 +20,6 @@ Explainability — heatmaps, replay, evidence stack, and narrative reasoning for
 Open Innovation — a modular plugin ecosystem that allows anyone to extend capabilities.
 
 
-Built by Team Glytch Outlaws for the [Hackathon Name], 2025.
-
-
 ---
 
 🎯 Key Features
