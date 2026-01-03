@@ -22,6 +22,11 @@ from passlib.context import CryptContext
 
 from backend.routers import vision, audio, motion, risk
 from backend.mock_state import get_state
+from backend import config
+from backend.real_sensors import RealSensors
+
+# Initialize Real Sensors Engine
+real_sensors_engine = RealSensors()
 
 # Optional audio libs (may fail on some systems)
 AUDIO_AVAILABLE = True
@@ -268,9 +273,24 @@ async def camera_capture_loop():
         ts = time.time()
         
         # Get consistent state
-        state = get_state()
-        overlays = get_overlays_from_state(FRAME_WIDTH, FRAME_HEIGHT)
-        risk_score = state.risk_score
+        if config.USE_MOCK_VISION:
+            state = get_state()
+            overlays = get_overlays_from_state(FRAME_WIDTH, FRAME_HEIGHT)
+            risk_score = state.risk_score
+        else:
+            # Use Real Sensors
+            # Try to snatch an audio chunk
+            a_chunk = None
+            if len(audio_buffer) > 0:
+                try:
+                    a_chunk = audio_buffer[-1] # Peak at latest
+                except: pass
+            
+            real_result = real_sensors_engine.process(frame, audio_chunk=a_chunk)
+            risk_score = real_result["risk_score"]
+            overlays = real_result["overlays"]
+            # We don't have a full "state" object for real sensors yet, 
+            # but the dashboard mainly uses 'risk_score' and 'overlays' from the packet.
 
         # --- try to get a synced audio chunk if available ---
         audio_array = None
@@ -534,6 +554,8 @@ async def get_export(filename: str, token: str):
 @app.on_event("startup")
 async def startup_event():
     # start camera loop
+    if not config.USE_MOCK_VISION:
+        real_sensors_engine.init()
     asyncio.create_task(camera_capture_loop())
     # start audio loop (if available)
     if AUDIO_AVAILABLE:

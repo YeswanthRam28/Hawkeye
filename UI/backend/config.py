@@ -8,9 +8,9 @@
 
 # MASTER SWITCHES
 # Set to False to try and connect to the real endpoints below.
-USE_MOCK_VISION = True
-USE_MOCK_AUDIO = True
-USE_MOCK_MOTION = True
+USE_MOCK_VISION = False
+USE_MOCK_AUDIO = False
+USE_MOCK_MOTION = False
 
 # MEMBER ENDPOINTS (If running on localhost ports)
 # Vision (Member 1)
